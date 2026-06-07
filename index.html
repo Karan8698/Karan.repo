@@ -1,0 +1,9 @@
+# Copy to your nginx container project
+cp index.html /root/nginxapp/index.html
+
+# Rebuild container
+podman build -t mynginx:v2 .
+podman run -d -p 9090:80 --name mysite localhost/mynginx:v2
+
+# Test
+curl http://localhost:9090
